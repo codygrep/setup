@@ -21,7 +21,7 @@ for PLUGIN in ${PLUGINS[@]}; do
   fi
 done
 
-if [ ! ~/setup/vim/.vimrc ]; then
+if [ ! -d ~/setup/vim/.vimrc ]; then
   ln -s ~/setup/vim/.vimrc ~/.vimrc
 fi
 
