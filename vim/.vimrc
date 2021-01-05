@@ -28,3 +28,5 @@ let g:go_auto_type_info = 1
 
 " NERDTree config
 nnoremap <C-g> :NERDTreeToggle<CR>
+
+autocmd VimEnter * GoInstallBinaries
