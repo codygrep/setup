@@ -1,7 +1,11 @@
 #!/bin/bash
 
 TEMP_DIR=~/tmp/setup
-# TODO if TEMP_DIR exists, delete contents
+if [ -d $TEMP_DIR ]
+then
+    rm -rf $TEMP_DIR
+fi
+
 mkdir -p $TEMP_DIR
 
 # Install jq
@@ -11,6 +15,16 @@ then
     sudo apt install jq -y
 else
     echo "jq is already installed"
+fi
+
+# Install bat
+if ! batcat --version &> /dev/null
+then
+    echo "Installing bat"
+    sudo apt install bat -y
+    echo "alias cat='batcat'" >> ~/.bashrc
+else
+    echo "bat is already installed"
 fi
 
 # Install GCC
@@ -57,3 +71,5 @@ fi
 
 # Clean up
 rm -rf $TEMP_DIR
+
+source ~/.bashrc
