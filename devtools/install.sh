@@ -69,6 +69,21 @@ else
     echo "Zig is already installed"
 fi
 
+# Install Janet
+if ! janet -v &> /dev/null
+then
+    echo "Installing Janet"
+    wget https://github.com/janet-lang/janet/releases/download/v1.13.1/janet-v1.13.1-linux.tar.gz -O $TEMP_DIR/janet.tar.gz
+    sudo tar -xzf $TEMP_DIR/janet.tar.gz -C $TEMP_DIR
+    rm $TEMP_DIR/janet.tar.gz
+    JANET_DIR=$(ls $TEMP_DIR | grep janet)
+    sudo mkdir -p /usr/local/janet
+    sudo mv $TEMP_DIR/$JANET_DIR/* /usr/local/janet
+    echo 'PATH="/usr/local/janet:$PATH"' >> ~/.bashrc
+else
+    echo "Janet is already installed"
+fi
+
 # Install docker
 if ! docker -v &> /dev/null
 then
@@ -86,4 +101,4 @@ fi
 # Clean up
 rm -rf $TEMP_DIR
 
-source ~/.bashrc
+echo 'Run source ~/.bashrc'

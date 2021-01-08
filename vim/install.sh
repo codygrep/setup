@@ -7,6 +7,8 @@ PLUGINS=(
   "scrooloose/NERDTree"
   "vim-airline/vim-airline"
   "tpope/vim-fugitive"
+  "janet-lang/janet.vim"
+  "vim-scripts/paredit.vim"
 )
 
 mkdir -p $PLUGIN_DIR
