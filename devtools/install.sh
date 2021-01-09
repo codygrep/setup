@@ -80,6 +80,7 @@ then
     #sudo mkdir -p /usr/local/janet
     sudo mv $TEMP_DIR/$JANET_DIR/janet /usr/local/bin
     sudo mv $TEMP_DIR/$JANET_DIR/jpm /usr/local/bin
+    sudo mkdir -p /usr/local/include/janet
     sudo mv $TEMP_DIR/$JANET_DIR/janet.c /usr/local/include/janet
     sudo mv $TEMP_DIR/$JANET_DIR/janet.h /usr/local/include/janet
     sudo mv $TEMP_DIR/$JANET_DIR/shell.c /usr/local/include/janet
