@@ -33,5 +33,6 @@ let mapleader = " "
 
 " NERDTree config
 nnoremap <C-g> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 autocmd VimEnter * GoInstallBinaries
