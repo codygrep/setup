@@ -28,6 +28,8 @@ let g:go_auto_type_info = 1
 
 " Paredit config for Janet
 au FileType janet call PareditInitBuffer()
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 
 " NERDTree config
 nnoremap <C-g> :NERDTreeToggle<CR>

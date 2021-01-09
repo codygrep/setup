@@ -9,6 +9,7 @@ PLUGINS=(
   "tpope/vim-fugitive"
   "janet-lang/janet.vim"
   "vim-scripts/paredit.vim"
+  "ziglang/zig.vim"
 )
 
 mkdir -p $PLUGIN_DIR
