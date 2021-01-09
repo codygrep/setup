@@ -3,7 +3,7 @@
 TEMP_DIR=~/tmp/setup
 if [ -d $TEMP_DIR ]
 then
-    rm -rf $TEMP_DIR
+    sudo rm -rf $TEMP_DIR
 fi
 
 mkdir -p $TEMP_DIR
@@ -77,9 +77,16 @@ then
     sudo tar -xzf $TEMP_DIR/janet.tar.gz -C $TEMP_DIR
     rm $TEMP_DIR/janet.tar.gz
     JANET_DIR=$(ls $TEMP_DIR | grep janet)
-    sudo mkdir -p /usr/local/janet
-    sudo mv $TEMP_DIR/$JANET_DIR/* /usr/local/janet
-    echo 'PATH="/usr/local/janet:$PATH"' >> ~/.bashrc
+    #sudo mkdir -p /usr/local/janet
+    sudo mv $TEMP_DIR/$JANET_DIR/janet /usr/local/bin
+    sudo mv $TEMP_DIR/$JANET_DIR/jpm /usr/local/bin
+    sudo mv $TEMP_DIR/$JANET_DIR/janet.c /usr/local/include/janet
+    sudo mv $TEMP_DIR/$JANET_DIR/janet.h /usr/local/include/janet
+    sudo mv $TEMP_DIR/$JANET_DIR/shell.c /usr/local/include/janet
+    sudo mv $TEMP_DIR/$JANET_DIR/libjanet.a /usr/local/lib
+    sudo mv $TEMP_DIR/$JANET_DIR/libjanet.so /usr/local/lib
+
+    #echo 'PATH="/usr/local/janet:$PATH"' >> ~/.bashrc
 else
     echo "Janet is already installed"
 fi
@@ -99,6 +106,6 @@ else
 fi
 
 # Clean up
-rm -rf $TEMP_DIR
+sudo rm -rf $TEMP_DIR
 
 echo 'Run source ~/.bashrc'
